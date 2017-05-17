@@ -36,16 +36,16 @@ func main() {
 
 // Handles incoming requests.
 func handleRequest(conn net.Conn) {
-	// Make a buffer to hold incoming data.
-	buf := make([]byte, 1024)
+	// Make a buffer to hold incoming data
 	// Read the incoming connection into the buffer.
-	reqLen, err := conn.Read(buf)
-	clientReply := string(reqLen)
+	bufReader := bufio.NewReader(conn)
+	bytes, err := bufReader.ReadBytes('\n')
+
 	if err != nil {
 		fmt.Println("Error reading:", err.Error())
 	}
 
-	fmt.Println(clientReply)
+	fmt.Printf("%s", bytes)
 	// Send a response back to person contacting us.
 	conn.Write([]byte("Hey, fuck you buddy!"))
 	// Close the connection when you're done with it.
