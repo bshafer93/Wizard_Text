@@ -5,10 +5,12 @@
     "devDependencies": {
         "electron": "^1.6.8"
     },
-
     "scripts": {
         "start": "electron main.js"
     },
     "author": "Brent Shafer",
-    "license": ""
+    "license": "",
+    "dependencies": {
+        "jquery": "^3.2.1"
+    }
 }

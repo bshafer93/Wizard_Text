@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <title>Hello World!</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script>
+        window.$ = window.jQuery = require('jquery');
+    </script>
+    <script type="text/javascript" src="./js/index.js"></script>
 </head>
 
 <body>
     <div id="messageField"></div>
     <div id="userActions">
-        <div id="userLoginID"> Brent@1.12.3.12> </div><input id="submitLine" type="text" name="firstname"><br>
+        <div id="userLoginID"> Brent@1.12.3.12> </div>
+        <div id="submitLine" name="userInput" contenteditable="true"></div>
     </div>
 
 </body>

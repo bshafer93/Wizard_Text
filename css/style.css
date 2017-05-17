@@ -22,19 +22,28 @@ div {
 }
 
 #userLoginID {
-    float: left;
+    order: 1;
 }
 
 #submitLine {
-    color: white;
-    float: left;
+    order: 2;
     background: black;
     font-family: Consolas, monaco, monospace;
     font-size: 18px;
+    overflow: hidden;
+    color: white;
+    min-width: 100px;
+    white-space: nowrap;
 }
 
 #userActions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-end;
     position: absolute;
+    width: 100%;
     bottom: 1%;
     left: 0%;
 }
