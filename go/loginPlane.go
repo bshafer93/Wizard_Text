@@ -5,6 +5,7 @@ import (
 	"net"
 	"os"
 	"io"
+	"bytes"
 )
 
 const (
