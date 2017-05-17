@@ -35,3 +35,6 @@ func main() {
 }
 
 // Handles incoming requests.
+func handleRequest(conn net.Conn) {
+
+}
