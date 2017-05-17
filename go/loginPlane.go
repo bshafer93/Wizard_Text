@@ -48,7 +48,7 @@ func handleRequest(conn net.Conn) {
 
 	fmt.Printf("%s", bytes)
 	// Send a response back to person contacting us.
-	conn.Write([]byte("Hey, fuck you buddy!"))
+	conn.Write([]byte("Hey, fuck you buddy! Pal"))
 	// Close the connection when you're done with it.
 	conn.Close()
 }
