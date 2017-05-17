@@ -5,6 +5,7 @@ $(document).ready(function() {
     var client = new net.Socket();
     client.connect(3333, '107.170.196.189', function() {
         console.log('Connected');
+
         client.write('Hello, server! Love, Client.');
     });
 

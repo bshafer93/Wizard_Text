@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net"
 	"os"
-	"bufio"
 )
 
 const (
@@ -37,18 +36,17 @@ func main() {
 
 // Handles incoming requests.
 func handleRequest(conn net.Conn) {
-	// Make a buffer to hold incoming data
+	// Make a buffer to hold incoming data.
+	buf := make([]byte, 2048)
 	// Read the incoming connection into the buffer.
-	bufReader := bufio.NewReader(conn)
-	bytes, err := bufReader.ReadBytes('\n')
-
+	reqLen, err := conn.Read(buf)
 	if err != nil {
 		fmt.Println("Error reading:", err.Error())
 	}
 
-	fmt.Printf("%s", bytes)
+	fmt.Println(reqLen)
 	// Send a response back to person contacting us.
-	conn.Write([]byte("Hey, fuck you buddy! Pal"))
+	conn.Write([]byte("Hey, fuck you buddy!"))
 	// Close the connection when you're done with it.
 	conn.Close()
 }
