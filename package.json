@@ -1,0 +1,14 @@
+{
+    "name": "Wizard-Text",
+    "version": "0.0.1",
+    "main": "main.js",
+    "devDependencies": {
+        "electron": "^1.6.8"
+    }
+
+    "scripts": {
+        "start": "electron main.js"
+    },
+    "author": "",
+    "license": "ISC"
+}
