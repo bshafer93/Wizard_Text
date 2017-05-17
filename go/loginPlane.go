@@ -40,11 +40,12 @@ func handleRequest(conn net.Conn) {
 	buf := make([]byte, 1024)
 	// Read the incoming connection into the buffer.
 	reqLen, err := conn.Read(buf)
+	clientReply := string(reqLen)
 	if err != nil {
 		fmt.Println("Error reading:", err.Error())
 	}
 
-	fmt.Println(reqLen)
+	fmt.Println(clientReply)
 	// Send a response back to person contacting us.
 	conn.Write([]byte("Hey, fuck you buddy!"))
 	// Close the connection when you're done with it.
