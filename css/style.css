@@ -1,0 +1,45 @@
+body {
+    color: white;
+    font-family: Consolas, monaco, monospace;
+    font-size: 18px;
+    background: black;
+}
+
+input {
+    background: black;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+}
+
+:focus {
+    outline: none;
+}
+
+div {
+    font-family: Consolas, monaco, monospace;
+}
+
+#userLoginID {
+    float: left;
+}
+
+#submitLine {
+    color: white;
+    float: left;
+    background: black;
+    font-family: Consolas, monaco, monospace;
+    font-size: 18px;
+}
+
+#userActions {
+    position: absolute;
+    bottom: 1%;
+    left: 0%;
+}
+
+#messageField {
+    bottom: 1%;
+    left: 0%;
+}

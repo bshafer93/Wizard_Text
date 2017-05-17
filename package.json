@@ -4,11 +4,11 @@
     "main": "main.js",
     "devDependencies": {
         "electron": "^1.6.8"
-    }
+    },
 
     "scripts": {
         "start": "electron main.js"
     },
-    "author": "",
-    "license": "ISC"
+    "author": "Brent Shafer",
+    "license": ""
 }
