@@ -33,7 +33,7 @@ $(document).ready(function() {
             if (e.keyCode === 13) {
                 var userMsg = $('#submitLine').text();
                 console.log(userMsg);
-                client.write("MIncoming" + "\n");
+                client.write("heartbeat" + "\n");
                 client.write(userMsg + "\n");
                 $('#submitLine').text('');
                 document.execCommand('insertHTML', false, '');

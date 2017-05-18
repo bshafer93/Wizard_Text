@@ -1,4 +1,4 @@
-package main
+package wizServer
 
 import (
 	"fmt"
@@ -6,6 +6,7 @@ import (
 	"os"
 	"bufio"
 	"strings"
+	""
 )
 
 const (
@@ -13,6 +14,7 @@ const (
 	CONN_PORT = "3333"
 	CONN_TYPE = "tcp"
 )
+
 
 func main() {
 	// Listen for incoming connections.
@@ -41,9 +43,11 @@ func handleRequest(conn net.Conn) {
 	nullCount := 0
 	connActive := true
 
+
+
 	for connActive == true {
 
-		msg, _ := bufio.NewReader(conn).ReadString('\n')
+
 		stringedMsg := string(msg)
 		headerMsg := strings.HasPrefix(stringedMsg, "MIncoming")
 
@@ -64,7 +68,7 @@ func handleRequest(conn net.Conn) {
 					">", "&gt",
 					"&","&amp")
 				sanitized := r.Replace(stringedMsg)
-				fmt.Print("Message Received:", string(msg))
+				fmt.Print("Message Receivede:", string(msg))
 				conn.Write([]byte(sanitized + "\n"))
 			}
 			nullCount++
