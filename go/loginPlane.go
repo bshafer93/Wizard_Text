@@ -36,7 +36,7 @@ func main() {
 
 // Handles incoming requests.
 func handleRequest(conn net.Conn) {
-
-
+	conn.Write([]byte("My name is nicky" + "\n"))
+	conn.Write([]byte("My name is nicky" + "\n"))
 	conn.Write([]byte("My name is nicky" + "\n"))
 }
