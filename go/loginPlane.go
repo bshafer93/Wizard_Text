@@ -47,12 +47,12 @@ func handleRequest(conn net.Conn) {
 
 
 
-		if string(msg) == "MIncoming" {
+		if string(msg) == "MIncoming\n" {
 
 			nullCount--
 
 		}
-		if nullCount <= 5 && string(msg) != "MIncoming" {
+		if nullCount <= 5 && string(msg) != "MIncoming\n" {
 
 			newmessage := strings.ToUpper(msg)
 			conn.Write([]byte(newmessage + "\n"))
