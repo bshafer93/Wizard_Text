@@ -6,6 +6,8 @@ import (
 	"os"
 	"io"
 	"bytes"
+	"bufio"
+	"strings"
 )
 
 const (
@@ -39,13 +41,11 @@ func main() {
 // Handles incoming requests.
 func handleRequest(conn net.Conn) {
 
+	msg, _ := bufio.NewReader(conn).ReadString('\n')
 
-	var buf bytes.Buffer
-	io.Copy(&buf, conn)
-	fmt.Println("total size:", buf.Len())
+	fmt.Print("Message Received:", string(msg))
 
-	conn.Write([]byte("Message received."))
+	newmessage := strings.ToUpper(msg)
 
-	// Close the connection when you're done with it.
-	conn.Close()
+	conn.Write([]byte(newmessage + "\n"))
 }
