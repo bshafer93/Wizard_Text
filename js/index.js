@@ -46,7 +46,7 @@ $(document).ready(function() {
 
     function addToChat(msg) {
         var charEscaped = JSON.stringify(msg)
-        var content = "<div id=chatLogMsg>" + msg + "</div>";
+        var content = "<div id=chatLogMsg>OtherUser>" + msg + "</div>";
 
         $("#messageField").prepend(content);
 

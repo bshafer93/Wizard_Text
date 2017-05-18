@@ -57,10 +57,14 @@ func handleRequest(conn net.Conn) {
 
 		if nullCount <= 5 && headerMsg == false {
 
-			newmessage := strings.ToUpper(msg)
-			conn.Write([]byte(newmessage + "\n"))
+
+
 			if len(stringedMsg) != 0 {
+				r := strings.NewReplacer("<", "&lt",
+					">", "&gt")
+				sanitized := r.Replace(stringedMsg)
 				fmt.Print("Message Received:", string(msg))
+				conn.Write([]byte(sanitized + "\n"))
 			}
 			nullCount++
 
