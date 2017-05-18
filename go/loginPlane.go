@@ -66,6 +66,16 @@ func handleRequest(conn net.Conn) {
 		} else {
 			connActive = false
 		}
+
+
+		switch stringedMsg {
+		case stringedMsg[0:9] == "MIncoming":
+			fmt.Println("one")
+		case nullCount <= 5 && stringedMsg[0:9] != "MIncoming":
+			fmt.Println("two")
+		default:
+			fmt.Println("three")
+		}
 	}
 
 	conn.Close()
