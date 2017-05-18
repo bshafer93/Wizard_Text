@@ -17,25 +17,32 @@ $(document).ready(function() {
 
     client.on('close', function() {
         console.log('Connection closed');
+        client.destroy();
     });
 
     client.on('connect', function() {
         console.log('Ready!');
     });
 
+    sendMessage();
 
 
-    $("#submitLine").keypress(function(e) {
-        if (e.keyCode === 13) {
-            var userMsg = $('#submitLine').text();
-            console.log(userMsg);
-            client.write(userMsg + "\n");
-            $('#submitLine').text('');
-            document.execCommand('insertHTML', false, '');
-            return false;
+    function sendMessage() {
+        $("#submitLine").keypress(function(e) {
+            if (e.keyCode === 13) {
+                var userMsg = $('#submitLine').text();
+                console.log(userMsg);
+                client.write("MIncoming" + "\n");
+                client.write(userMsg + "\n");
+                $('#submitLine').text('');
+                document.execCommand('insertHTML', false, '');
+                return false;
 
-        }
-    });
+            }
+        });
+
+    }
+
 
 
 });

@@ -38,15 +38,31 @@ func main() {
 
 // Handles incoming requests.
 func handleRequest(conn net.Conn) {
+	nullCount := 0
+	connActive := true
 
-	for {
+	for connActive == true {
+
 		msg, _ := bufio.NewReader(conn).ReadString('\n')
 
 		fmt.Print("Message Received:", string(msg))
 
-		newmessage := strings.ToUpper(msg)
+		if string(msg) == "MIncoming" {
 
-		conn.Write([]byte(newmessage + "\n"))
+			nullCount--
+
+		}
+		if nullCount <= 5 {
+
+			newmessage := strings.ToUpper(msg)
+			conn.Write([]byte(newmessage + "\n"))
+			nullCount++
+		} else {
+			connActive = false
+		}
 	}
 
+	conn.Close()
+
 }
+
