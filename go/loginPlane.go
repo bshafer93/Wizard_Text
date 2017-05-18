@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"net"
 	"os"
-	"bufio"
-	"strings"
 )
 
 const (
