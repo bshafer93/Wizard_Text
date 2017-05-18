@@ -45,7 +45,7 @@ func handleRequest(conn net.Conn) {
 
 		msg, _ := bufio.NewReader(conn).ReadString('\n')
 
-		fmt.Print("Message Received:", string(msg))
+
 
 		if string(msg) == "MIncoming" {
 
@@ -56,6 +56,7 @@ func handleRequest(conn net.Conn) {
 
 			newmessage := strings.ToUpper(msg)
 			conn.Write([]byte(newmessage + "\n"))
+			fmt.Print("Message Received:", string(msg))
 			nullCount++
 		} else {
 			connActive = false
