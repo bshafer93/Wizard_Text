@@ -5,6 +5,8 @@ import (
 	"net"
 	"os"
 	"strings"
+	"bufio"
+	"log"
 )
 
 const (
@@ -43,8 +45,14 @@ func handleRequest(conn net.Conn) {
 
 
 
+
 	for connActive == true {
 
+		msg, err := bufio.NewReader(conn).ReadString('\n')
+
+		if err != nil {
+			log.Fatal(err)
+		}
 
 		stringedMsg := string(msg)
 		headerMsg := strings.HasPrefix(stringedMsg, "MIncoming")
