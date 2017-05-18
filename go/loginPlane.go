@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"net"
 	"os"
-	"io"
-	"bytes"
 	"bufio"
 	"strings"
 )
