@@ -44,15 +44,17 @@ func handleRequest(conn net.Conn) {
 	for connActive == true {
 
 		msg, _ := bufio.NewReader(conn).ReadString('\n')
+		stringedMsg := string(msg)
+		first9 := stringedMsg[0:9]
 
 
 
-		if string(msg) == "MIncoming\n" {
+		if first9 == "MIncoming" {
 
 			nullCount--
 
 		}
-		if nullCount <= 5 && string(msg) != "MIncoming\n" {
+		if nullCount <= 5 && first9 != "MIncoming" {
 
 			newmessage := strings.ToUpper(msg)
 			conn.Write([]byte(newmessage + "\n"))
