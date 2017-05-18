@@ -50,12 +50,11 @@ func handleRequest(conn net.Conn) {
 		fmt.Println(first9)
 
 		if first9 == "MIncoming" {
-			fmt.Print("Header Received")
-
-			if nullCount == 0{nullCount = 0 }
-
+			if nullCount == 0{
+				nullCount = 0
+			}
 			nullCount--
-
+			fmt.Print("Header Received")
 		}
 
 		if nullCount <= 5 && first9 != "MIncoming" {
