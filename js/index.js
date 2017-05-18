@@ -10,6 +10,7 @@ $(document).ready(function() {
 
     client.on('data', function(data) {
         console.log('Received: ' + data);
+        addToChat(data);
     });
 
 
@@ -40,6 +41,15 @@ $(document).ready(function() {
 
             }
         });
+
+    }
+
+    function addToChat(msg) {
+        var charEscaped = JSON.stringify(msg)
+        var content = "<div id=chatLogMsg>" + msg + "</div>";
+
+        $("#messageField").prepend(content);
+
 
     }
 
