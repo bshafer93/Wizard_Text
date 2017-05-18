@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"bufio"
+	"strings"
 )
 
 const (
@@ -36,7 +38,12 @@ func main() {
 
 // Handles incoming requests.
 func handleRequest(conn net.Conn) {
-	conn.Write([]byte("My name is nicky" + "\n"))
-	conn.Write([]byte("My name is nicky" + "\n"))
-	conn.Write([]byte("My name is nicky" + "\n"))
+
+	msg, _ := bufio.NewReader(conn).ReadString('\n')
+
+	fmt.Print("Message Received:", string(msg))
+
+	newmessage := strings.ToUpper(msg)
+
+	conn.Write([]byte(newmessage + "\n"))
 }
