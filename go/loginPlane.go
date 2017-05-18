@@ -45,11 +45,10 @@ func handleRequest(conn net.Conn) {
 
 		msg, _ := bufio.NewReader(conn).ReadString('\n')
 		stringedMsg := string(msg)
-		first9 := stringedMsg[0:9]
+		 headerMsg := strings.HasPrefix(stringedMsg, "MIncoming")
+		
 
-		fmt.Println(first9)
-
-		if first9 == "MIncoming" {
+		if headerMsg == true {
 			if nullCount == 0{
 				nullCount = 0
 			}
@@ -57,7 +56,7 @@ func handleRequest(conn net.Conn) {
 			fmt.Print("Header Received")
 		}
 
-		if nullCount <= 5 && first9 != "MIncoming" {
+		if nullCount <= 5 && headerMsg == false {
 
 			newmessage := strings.ToUpper(msg)
 			conn.Write([]byte(newmessage + "\n"))
