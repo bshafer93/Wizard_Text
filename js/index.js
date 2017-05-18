@@ -5,20 +5,8 @@ $(document).ready(function() {
     var client = new net.Socket();
     client.connect(3333, '107.170.196.189', function() {
 
-        console.log('Connected');
-        $("#submitLine").keypress(function(e) {
-            if (e.keyCode === 13) {
-                console.log('Ready!');
-                // insert 2 br tags (if only one br tag is inserted the cursor won't go to the next line)
-                var userMsg = $('#submitLine').text();
-                console.log(userMsg);
-                client.write(userMsg + "\n");
-                client.end();
-                document.execCommand('insertHTML', false, '');
-                return false;
-            }
-        });
-
+        console.log('Connected to the server!');
+        client.write("Mrg" + "\n");
     });
 
     client.on('data', function(data) {
@@ -33,15 +21,33 @@ $(document).ready(function() {
         console.log('Connection closed');
     });
 
+    client.on('connect', function() {
+
+        //   $("#submitLine").keypress(function(e) {
+        // if (e.keyCode === 13) {
+        console.log('Ready!');
+        // var userMsg = $('#submitLine').text();
+        //   console.log(userMsg);
+        //client.write(userMsg + "\n");
+        //  $('#submitLine').text('');
+        //   document.execCommand('insertHTML', false, '');
+        //   return false;
+        client.write("Mrg" + "\n");
+    });
 
 
 
+    $("#submitLine").keypress(function(e) {
+        if (e.keyCode === 13) {
+            var userMsg = $('#submitLine').text();
+            console.log(userMsg);
+            client.write(userMsg + "\n");
+            $('#submitLine').text('');
+            document.execCommand('insertHTML', false, '');
+            return false;
 
-
-
-
-
-
+        }
+    });
 
 
 });

@@ -39,11 +39,6 @@ func main() {
 // Handles incoming requests.
 func handleRequest(conn net.Conn) {
 
-	msg, _ := bufio.NewReader(conn).ReadString('\n')
 
-	fmt.Print("Message Received:", string(msg))
-
-	newmessage := strings.ToUpper(msg)
-
-	conn.Write([]byte(newmessage + "\n"))
+	conn.Write([]byte("My name is nicky" + "\n"))
 }
