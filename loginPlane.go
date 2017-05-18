@@ -1,4 +1,4 @@
-package wizServer
+package Wizard_Text
 
 import (
 	"fmt"
