@@ -47,7 +47,7 @@ func handleRequest(conn net.Conn) {
 		stringedMsg := string(msg)
 		first9 := stringedMsg[0:9]
 
-
+		fmt.Println(first9)
 
 		if first9 == "MIncoming" {
 
