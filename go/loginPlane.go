@@ -63,7 +63,8 @@ func handleRequest(conn net.Conn) {
 			conn.Write([]byte(newmessage + "\n"))
 			fmt.Print("Message Received:", string(msg))
 			nullCount++
-		} else {
+		}
+		if nullCount >= 5{
 			connActive = false
 		}
 
