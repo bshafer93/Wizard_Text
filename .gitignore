@@ -6,3 +6,5 @@
 .idea/libraries/Go_SDK.xml
 .idea/libraries/GOPATH__Wizard_Text_.xml
 .idea/libraries/Go_SDK.xml
+.releases/*
+.go/*
