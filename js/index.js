@@ -1,7 +1,10 @@
 var $ = require('jQuery');
 var net = require('net');
 var tls = require('tls');
+var flags = require('flags');
 $(document).ready(function() {
+
+
     var client = new tls.TLSSocket();
     client.connect(3333, '192.168.0.25', function () {
 

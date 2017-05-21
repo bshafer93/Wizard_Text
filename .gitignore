@@ -1,11 +1,1 @@
-.idea/modules.xml
-.idea/vcs.xml
 .idea/workspace.xml
-.idea/Wizard_Text.iml
-.idea/vcs.xml
-.idea/libraries/Go_SDK.xml
-.idea/libraries/GOPATH__Wizard_Text_.xml
-.idea/libraries/Go_SDK.xml
-.releases/*
-.go/*
-releases/Wizard-Text-win32-ia32/content_resources_200_percent.pak
